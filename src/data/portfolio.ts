@@ -101,7 +101,6 @@ export const SKILLS: SkillCategory[] = [
 ];
 
 export const SOCIALS = [
-  { name: "Email", link: "mailto:samuel@example.com", label: "samuel@example.com" },
-  { name: "LinkedIn", link: "https://linkedin.com/in/samuelgetachew", label: "linkedin.com/in/samuelgetachew" },
-  { name: "GitHub", link: "https://github.com/samuelgetachew", label: "github.com/samuelgetachew" }
+  { name: "Email", link: "mailto:samuelgetachew360@gmail.com", label: "samuelgetachew360@.gmail.com" },
+  { name: "GitHub", link: "https://github.com/SamiGetu", label: "github.com/SamiGetu" }
 ];
