@@ -1,5 +1,14 @@
 import type { Project, Experience, SkillCategory } from '../types';
 
+import hrImg from '../assets/projects/hr.webp';
+import keftaImg from '../assets/projects/kefta.webp';
+import kispayImg from '../assets/projects/kispay.webp';
+import onenessImg from '../assets/projects/oneness.webp';
+import opmImg from '../assets/projects/opm.webp';
+import parentPortalImg from '../assets/projects/parent-portal.webp';
+import zmenuImg from '../assets/projects/zmenu.webp';
+import websiteBuilderImg from '../assets/projects/webbuilder.webp';
+
 export const EXPERIENCE: Experience[] = [
   {
     company: "Oneplanet International School — Oneness Academy",
@@ -26,49 +35,57 @@ export const PROJECTS: Project[] = [
     id: "01",
     name: "Oneness Academy",
     description: "E-learning platform for students and teachers.",
-    isPersonal: false
+    isPersonal: false,
+    image: onenessImg
   },
   {
     id: "02",
     name: "HR System",
     description: "Comprehensive Human Resources management system.",
-    isPersonal: false
+    isPersonal: false,
+    image: hrImg
   },
   {
     id: "03",
     name: "Kefeta Microfinance",
     description: "Merchant backoffice dashboard for managing operations.",
-    isPersonal: false
+    isPersonal: false,
+    image: keftaImg
   },
   {
     id: "04",
     name: "Kispay Gateway",
     description: "Payment gateway merchant backoffice dashboard for seamless transactions.",
-    isPersonal: false
+    isPersonal: false,
+    image: kispayImg
   },
   {
     id: "05",
     name: "Parent Student Portal",
     description: "Portal connecting parents and students with school resources.",
-    isPersonal: false
+    isPersonal: false,
+    image: parentPortalImg
   },
   {
     id: "06",
     name: "Oneplanet Media",
     description: "YouTube channel management platform.",
-    isPersonal: false
+    isPersonal: false,
+    image: opmImg
   },
   {
     id: "07",
     name: "zMenu",
     description: "Food menu management platform for restaurants.",
-    isPersonal: true
+    isPersonal: true,
+    image: zmenuImg
   },
   {
     id: "08",
     name: "Website Builder",
     description: "Template based website builder for rapid development.",
-    isPersonal: true
+    isPersonal: true,
+    image: websiteBuilderImg
   }
 ];
 

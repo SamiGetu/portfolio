@@ -1,9 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { PROJECTS } from '../../data/portfolio';
 import { gsap } from '../../lib/gsap';
 
 const Projects = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -82,13 +83,21 @@ const Projects = () => {
               {chunk.map((project, index) => (
                 <div 
                   key={project.id} 
-                  className={`project-card group border-2 border-white p-6 flex flex-col justify-between cursor-pointer overflow-hidden bg-black hover:bg-white hover:text-black transition-colors duration-300 min-h-[300px] md:min-h-0 ${getGridClasses(index, chunk.length)}`}
+                  onClick={() => { if (project.image) setSelectedImage(project.image); }}
+                  className={`project-card relative group border-2 border-white p-6 flex flex-col justify-between cursor-pointer overflow-hidden bg-black hover:bg-white hover:text-black transition-colors duration-300 min-h-[300px] md:min-h-0 ${getGridClasses(index, chunk.length)}`}
                 >
-                  <div className="flex justify-between items-start mb-8 border-b-2 border-white group-hover:border-black pb-2 transition-colors duration-300">
+                  {project.image && (
+                    <div className="absolute inset-0 w-full h-full opacity-40 group-hover:opacity-80 transition-opacity duration-300 pointer-events-none z-0" style={{ willChange: "opacity" }}>
+                      <div className="absolute inset-0 bg-black/50 z-10"></div>
+                      <img src={project.image} alt={project.name} loading="lazy" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300 z-0 relative" style={{ willChange: "filter" }} />
+                    </div>
+                  )}
+
+                  <div className="flex justify-between items-start mb-8 border-b-2 border-white group-hover:border-black pb-2 transition-colors duration-300 relative z-10">
                     <span className="text-4xl md:text-6xl font-headline tracking-tighter leading-none">{project.id}</span>
                   </div>
                   
-                  <div className="mt-auto">
+                  <div className="mt-auto relative z-10">
                     <h3 className="text-3xl md:text-5xl font-headline mb-4 uppercase leading-none tracking-tight break-words">{project.name}</h3>
                     <div className="flex items-end w-full">
                       <p className="text-xs md:text-sm font-bold uppercase tracking-wider leading-tight w-full flex justify-between gap-4">
@@ -126,6 +135,29 @@ const Projects = () => {
           <span>SYSTEM // ONLINE</span>
         </div>
       </div>
+
+      {/* Full Screen Image Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 md:p-12"
+          onClick={() => setSelectedImage(null)}
+        >
+          <img 
+            src={selectedImage} 
+            alt="Full screen project" 
+            className="max-w-full max-h-[90vh] object-contain border-2 border-white"
+          />
+          <button 
+            className="absolute top-6 right-6 text-white text-5xl hover:text-gray-400 transition-colors"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedImage(null);
+            }}
+          >
+            &times;
+          </button>
+        </div>
+      )}
     </section>
   );
 };

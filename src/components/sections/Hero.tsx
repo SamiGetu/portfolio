@@ -1,9 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from '../../lib/gsap';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import samiImage from "../../assets/images/ChatGPT Image Jun 18, 2026, 10_49_36 AM.png"
-import coffe from "../../assets/images/coffe.jpeg"
-import ethiopian from "../../assets/images/ethiopia.jpeg"
+import samiImage from "../../assets/images/ChatGPT Image Jun 18, 2026, 10_49_36 AM.webp"
+import coffe from "../../assets/images/coffe.webp"
+import ethiopian from "../../assets/images/ethiopia.webp"
+import resuma from "../../assets/Resume.docx.pdf"
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -42,10 +43,10 @@ const Hero = () => {
   return (
     <section ref={containerRef} className="relative h-screen flex flex-col justify-center items-center overflow-hidden bg-white px-4 mt-7 transition-colors duration-300">
       {/* Background Images / Collage Grid */}
-      <motion.div style={{ y, opacity }} className="absolute inset-0 z-0 pointer-events-none flex flex-col md:flex-row justify-between p-4 md:p-12 opacity-30 md:opacity-100">
-        <div className="w-full md:w-1/3 h-1/3 md:h-2/3 border-4 border-black mt-4 md:mt-20 opacity-80 transition-colors duration-300" style={{ backgroundImage: `url('${samiImage}')`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', filter: 'grayscale(100%)' }}></div>
-        <div className="w-1/2 md:w-1/4 h-1/4 md:h-1/2 border-4 border-black mt-auto mb-4 md:mb-20 opacity-80 transition-colors duration-300" style={{ backgroundImage: `url('${ethiopian}')`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', filter: 'grayscale(100%)' }}></div>
-        <div className="hidden md:block w-1/4 h-3/4 border-4 border-black opacity-80 mix-blend-multiply transition-colors duration-300" style={{ backgroundImage: `url('${coffe}')`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', filter: 'grayscale(100%)' }}></div>
+      <motion.div style={{ y, opacity, willChange: "transform, opacity" }} className="absolute inset-0 z-0 pointer-events-none flex flex-col md:flex-row justify-between p-4 md:p-12 opacity-30 md:opacity-100">
+        <div className="w-full md:w-1/3 h-1/3 md:h-2/3 border-4 border-black mt-4 md:mt-20 opacity-80 transition-colors duration-300" style={{ backgroundImage: `url('${samiImage}')`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', filter: 'grayscale(100%)', willChange: 'filter' }}></div>
+        <div className="w-1/2 md:w-1/4 h-1/4 md:h-1/2 border-4 border-black mt-auto mb-4 md:mb-20 opacity-80 transition-colors duration-300" style={{ backgroundImage: `url('${ethiopian}')`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', filter: 'grayscale(100%)', willChange: 'filter' }}></div>
+        <div className="hidden md:block w-1/4 h-3/4 border-4 border-black opacity-80 mix-blend-multiply transition-colors duration-300" style={{ backgroundImage: `url('${coffe}')`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', filter: 'grayscale(100%)', willChange: 'filter' }}></div>
       </motion.div>
 
       {/* Text Content */}
@@ -62,7 +63,7 @@ const Hero = () => {
 
         <div className="hero-subtitle mt-12 flex flex-col sm:flex-row gap-6 items-start justify-start w-full px-4 md:px-12 relative z-20 pointer-events-auto">
           <a
-            href="/resume.pdf"
+            href={resuma}
             target="_blank"
             rel="noopener noreferrer"
             className="border-2 border-[#ffffff] text-[#ffffff] px-8 py-3 text-sm md:text-base font-bold uppercase tracking-widest hover:bg-[#ffffff] hover:text-[#000000] transition-colors duration-300 pointer-events-auto"

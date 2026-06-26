@@ -3,6 +3,7 @@ export interface Project {
   name: string;
   description: string;
   isPersonal?: boolean;
+  image?: string;
 }
 
 export interface Experience {

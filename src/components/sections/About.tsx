@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import samiImage from "../../assets/images/ChatGPT Image Jun 18, 2026, 11_06_07 AM.png"
+import samiImage from "../../assets/images/ChatGPT Image Jun 18, 2026, 11_06_07 AM.webp"
 
 const About = () => {
   return (
@@ -23,7 +23,7 @@ const About = () => {
             </h3>
           </motion.div>
           <div className="w-full aspect-[3/4] border-2 border-black overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
-            <img src={samiImage} alt="Samuel Getachew" className="object-cover w-full h-full" />
+            <img src={samiImage} alt="Samuel Getachew" loading="lazy" className="object-cover w-full h-full" style={{ willChange: "filter" }} />
             <div className="absolute bottom-0 left-0 w-full bg-black text-white p-2 text-xs uppercase font-bold">
               Fig 1. The Developer in his element.
             </div>
